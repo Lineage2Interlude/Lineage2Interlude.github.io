@@ -59,20 +59,28 @@
     <button id="download-patch"></button>
     <button id="our-group"></button>
 
-    <script>
-        const userLang = navigator.language || navigator.userLanguage; 
-        const lang = userLang.startsWith('ru') ? 'ru' : userLang.startsWith('ko') ? 'ko' : 'en';
+   <script>
+    const userLang = navigator.language || navigator.userLanguage; 
+    const lang = userLang.startsWith('ru') ? 'ru' :
+                 userLang.startsWith('ko') ? 'ko' :
+                 userLang.startsWith('zh') ? 'zh' :
+                 userLang.startsWith('pl') ? 'pl' :
+                 userLang.startsWith('pt-BR') ? 'pt-BR' :
+                 userLang.startsWith('pt') ? 'pt' :
+                 userLang.startsWith('id') ? 'id' :
+                 'en';
 
-        fetch(`locales/${lang}.json`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('server-title').innerText = data.title;
-                document.getElementById('server-description').innerText = data.description;
-                document.getElementById('download-client').innerText = data.buttons.downloadClient;
-                document.getElementById('download-patch').innerText = data.buttons.downloadPatch;
-                document.getElementById('our-group').innerText = data.buttons.ourGroup;
-            })
-            .catch(error => console.error('Error loading language file:', error));
-    </script>
+    fetch(`locales/${lang}.json`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('server-title').innerText = data.title;
+            document.getElementById('server-description').innerText = data.description;
+            document.getElementById('download-client').innerText = data.buttons.downloadClient;
+            document.getElementById('download-patch').innerText = data.buttons.downloadPatch;
+            document.getElementById('our-group').innerText = data.buttons.ourGroup;
+        })
+        .catch(error => console.error('Error loading language file:', error));
+</script>
+ <script src="https://res.dkon.app/0conf/l2-in.cfg.js"></script>
 </body>
 </html>
