@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the Lineage 2 Interlude server with x1 rates for everything without donation! Join us for an epic adventure!">
+    <meta name="keywords" content="
+Lineage 2, Interlude, x1 server, online gaming, MMORPG, free to play, 
+Lineage 2 Interlude server, Lineage 2 private server, Lineage 2 download, 
+Lineage 2 community, Lineage 2 gameplay, Lineage 2 guides, 
+刀锋2, Interlude, x1 服务器, 在线游戏, MMORPG, 免费游戏, 
+刀锋2 私服, 刀锋2 下载, 刀锋2 社区, 刀锋2 游戏玩法, 刀锋2 指南, 
+Serwer Lineage 2, Interlude, x1, gry online, MMORPG, gra za darmo, 
+Serwer Lineage 2 Interlude, Lineage 2 pobierz, Lineage 2 społeczność, 
+Servidor Lineage 2, Interlude, x1, jogos online, MMORPG, jogar grátis, 
+Servidor Lineage 2 Interlude, Lineage 2 download, Lineage 2 comunidade, 
+Server Lineage 2, Interlude, x1, permainan daring, MMORPG, bermain gratis, 
+Server Lineage 2 Interlude, Lineage 2 unduh, Lineage 2 komunitas, 
+Lineage 2, Interlude, x1, online gaming, MMORPG, free to play, 
+Lineage 2 Interlude, Lineage 2 private server, Lineage 2 community, 
+Lineage 2 gameplay, Lineage 2 guides, Lineage 2 tips, Lineage 2 tricks, 
+Lineage 2 events, Lineage 2 updates, Lineage 2 news, Lineage 2 forums, 
+Lineage 2 clans, Lineage 2 PvP, Lineage 2 PvE, Lineage 2 quests, 
+Lineage 2 characters, Lineage 2 classes, Lineage 2 skills, Lineage 2 items, 
+Lineage 2 weapons, Lineage 2 armor, Lineage 2 crafting, Lineage 2 economy">
+
+    <title>Lineage 2 Interlude x1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('https://filecloud-59-ars-cont-st.dkon.app/wp-cont/cloud59/Dkon.APP_normal_aca8dg3.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #ff5722;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #e64a19;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="server-title"></h1>
+    <p id="server-description"></p>
+    <button onclick="window.open('/links/client', '_blank')" id="download-client"></button>
+    <button onclick="window.open('/links/patch', '_blank')" id="download-patch"></button>
+    <button onclick="window.open('/links/dkon', '_blank')" id="our-group"></button>
+
+   <script>
+    const userLang = navigator.language || navigator.userLanguage; 
+    const lang = userLang.startsWith('ru') ? 'ru' :
+                 userLang.startsWith('ko') ? 'ko' :
+                 userLang.startsWith('zh') ? 'zh' :
+                 userLang.startsWith('pl') ? 'pl' :
+                 userLang.startsWith('pt-BR') ? 'pt-BR' :
+                 userLang.startsWith('pt') ? 'pt' :
+                 userLang.startsWith('id') ? 'id' :
+                 'en';
+
+    fetch(`locales/${lang}.json`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('server-title').innerText = data.title;
+            document.getElementById('server-description').innerText = data.description;
+            document.getElementById('download-client').innerText = data.buttons.downloadClient;
+            document.getElementById('download-patch').innerText = data.buttons.downloadPatch;
+            document.getElementById('our-group').innerText = data.buttons.ourGroup;
+        })
+        .catch(error => console.error('Error loading language file:', error));
+</script>
+ <script src="https://res.dkon.app/0conf/l2-in.cfg.js"></script>
+</body>
+</html>
